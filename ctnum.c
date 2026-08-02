@@ -125,29 +125,45 @@
 //------------------------------------------------------//
 //                 FIZZ BUZZ problem                    //
 //------------------------------------------------------//
-int main(){
-    int n,i;
-    printf("enter number ");
-    scanf("%d",&n);
-    for(i=1;i<=n;i++){
-        if(i%3==0){
+// int main(){
+//     int n,i;
+//     printf("enter number ");
+//     scanf("%d",&n);
+//     for(i=1;i<=n;i++){
+//         if(i%3==0){
             
-            if(i%5==0){
-               printf("fizzbuzz\n");
-            }
-            else{
-                printf("fizz\n");
-            }
-        }
-        else if(i%5==0){
+//             if(i%5==0){
+//                printf("fizzbuzz\n");
+//             }
+//             else{
+//                 printf("fizz\n");
+//             }
+//         }
+//         else if(i%5==0){
             
-            printf("buzz\n");
+//             printf("buzz\n");
 
-        }
-        else{
-            printf("%d\n",i);
-        }
+//         }
+//         else{
+//             printf("%d\n",i);
+//         }
+//     }
+
+// }
+int main(){
+    int n,r,a,b,temp_a,temp_b;
+    printf("enter numbers\n");
+    scanf("%d",&a);
+    scanf("%d",&b);
+    temp_a=a;
+    temp_b=b;
+    while(b!=0){
+        r=a%b;
+        a=b;
+        b=r;
     }
+    printf("GCD of %d and %d is = %d",temp_a,temp_b,a);
+
 
 }
 
