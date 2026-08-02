@@ -453,136 +453,136 @@ int main(){
 // }
 // free(ptr);
 // ptr=NULL;
-FILE *fp;
-fp=fopen("student.txt","r");
-if(NULL==fp){
-    printf("file opening failed");
-    return 1;
-}
-fclose(fp);
-struct stud{
-    int roll;
-    char name[50];
-    float marks;
-};
-struct stud *ptr,*temp;
-int n,k,i,r,w,rd,found=0 ;//r,&rd,nm,na,ma,mf
-float high,mf;
-char rv[60],nm[60],na[60],ma[60];
-printf("enter no. of students \n");
-scanf("%d",&n);
-ptr=calloc(n,sizeof(struct stud));
+// FILE *fp;
+// fp=fopen("student.txt","r");
+// if(NULL==fp){
+//     printf("file opening failed");
+//     return 1;
+// }
+// fclose(fp);
+// struct stud{
+//     int roll;
+//     char name[50];
+//     float marks;
+// };
+// struct stud *ptr,*temp;
+// int n,k,i,r,w,rd,found=0 ;//r,&rd,nm,na,ma,mf
+// float high,mf;
+// char rv[60],nm[60],na[60],ma[60];
+// printf("enter no. of students \n");
+// scanf("%d",&n);
+// ptr=calloc(n,sizeof(struct stud));
 
-if(ptr==NULL){
-    printf("memory allocation failed");
-    return 1;
-}
-for(i=0;i<n;i++){
-    printf("%d student detail \n",i+1);
-    printf("enter roll no. \n");
-    scanf("%d",&ptr[i].roll);
-    getchar();
-    printf("enter name of student \n");
-    fgets(ptr[i].name,50,stdin);
-    printf("enter marks of student \n");
-    scanf("%f",&ptr[i].marks);
-}
+// if(ptr==NULL){
+//     printf("memory allocation failed");
+//     return 1;
+// }
+// for(i=0;i<n;i++){
+//     printf("%d student detail \n",i+1);
+//     printf("enter roll no. \n");
+//     scanf("%d",&ptr[i].roll);
+//     getchar();
+//     printf("enter name of student \n");
+//     fgets(ptr[i].name,50,stdin);
+//     printf("enter marks of student \n");
+//     scanf("%f",&ptr[i].marks);
+// }
 
-while(1){
-printf("1. add students\n2.show students\n3.search by roll number\n4. save\n5. load\n6. show highest marks\n7. exit \n");
-scanf("%d",&k);
-switch (k)
-{
-case 1: printf("no. of students want to add ? \n");
-        scanf("%d",&r);
-        temp=realloc(ptr,(n+r)*sizeof(struct stud));
-        if (NULL == temp){
-            printf("reallocation fails");
-            break;
-        }
-        ptr=temp;
-        for(i=n;i<(r+n);i++){
-            printf(" %d student detail\n",i+1);
-            printf("enter roll number  ");
-            scanf("%d",&ptr[i].roll);
-            getchar();
-            printf("enter name of student ");
-            fgets(ptr[i].name,50,stdin);
-            printf("enter marks of student  ");
-            scanf("%f",&ptr[i].marks);
-        }
-        n=n+r;
-        break;
-case 2 : for(i=0;i<n;i++){
-    printf("%d student details\n",i+1);
-    printf("Roll number : %d\nName : %s\nMarks : %f \n\n",ptr[i].roll,ptr[i].name,ptr[i].marks);
+// while(1){
+// printf("1. add students\n2.show students\n3.search by roll number\n4. save\n5. load\n6. show highest marks\n7. exit \n");
+// scanf("%d",&k);
+// switch (k)
+// {
+// case 1: printf("no. of students want to add ? \n");
+//         scanf("%d",&r);
+//         temp=realloc(ptr,(n+r)*sizeof(struct stud));
+//         if (NULL == temp){
+//             printf("reallocation fails");
+//             break;
+//         }
+//         ptr=temp;
+//         for(i=n;i<(r+n);i++){
+//             printf(" %d student detail\n",i+1);
+//             printf("enter roll number  ");
+//             scanf("%d",&ptr[i].roll);
+//             getchar();
+//             printf("enter name of student ");
+//             fgets(ptr[i].name,50,stdin);
+//             printf("enter marks of student  ");
+//             scanf("%f",&ptr[i].marks);
+//         }
+//         n=n+r;
+//         break;
+// case 2 : for(i=0;i<n;i++){
+//     printf("%d student details\n",i+1);
+//     printf("Roll number : %d\nName : %s\nMarks : %f \n\n",ptr[i].roll,ptr[i].name,ptr[i].marks);
 
-      }
-      break;
+//       }
+//       break;
 
-case 3 : printf("enter roll number to search ");
-         scanf("%d",&w);
-         for(i=0;i<n;i++){
-            if(w==ptr[i].roll){
-                found=1;
-                printf("\nstudent detail of roll number %d\n",w);
-                printf("Name : %s\nRoll number : %d\nMarks : %f \n",ptr[i].name,ptr[i].roll,ptr[i].marks);
-                break;
+// case 3 : printf("enter roll number to search ");
+//          scanf("%d",&w);
+//          for(i=0;i<n;i++){
+//             if(w==ptr[i].roll){
+//                 found=1;
+//                 printf("\nstudent detail of roll number %d\n",w);
+//                 printf("Name : %s\nRoll number : %d\nMarks : %f \n",ptr[i].name,ptr[i].roll,ptr[i].marks);
+//                 break;
 
-            }
+//             }
             
-         }
-         if(found==0){
-                printf("student not found\n");
-            }
+//          }
+//          if(found==0){
+//                 printf("student not found\n");
+//             }
          
-         break;
+//          break;
 
-case 4 : printf("saving data\n");fp=fopen("student.txt","a");
-         if(fp==NULL){
-            printf("file opening failed");
-            return 1;
-         }
-         for(i=0;i<n;i++){
-            fprintf(fp," %d\n %s %f\n",ptr[i].roll,ptr[i].name,ptr[i].marks);
-         }
-         fclose(fp);
-         break;
+// case 4 : printf("saving data\n");fp=fopen("student.txt","a");
+//          if(fp==NULL){
+//             printf("file opening failed");
+//             return 1;
+//          }
+//          for(i=0;i<n;i++){
+//             fprintf(fp," %d\n %s %f\n",ptr[i].roll,ptr[i].name,ptr[i].marks);
+//          }
+//          fclose(fp);
+//          break;
 
-case 5 : printf("loading data \n");fp=fopen("student.txt","r");
-        //  if(fp==EOF){
-        //     printf("file is empty");
-        //  }
-         if(NULL==fp){
-            printf("operation failed");
-            return 1;
-         }
-         while(fscanf(fp,"%d%s%f",&rd,rv,&mf)==3){
-            printf(" roll number :%d name: %s marks :%f\n",rd,rv,mf);
-         }
-         fclose(fp);
-        break;       
-case 6 : high=ptr[0].marks;
-         for(i=0;i<n;i++){
-            if(high<ptr[i].marks){
-                high=ptr[i].marks;
-            }
-         }
-         for(i=0;i<n;i++){
-            if(high==ptr[i].marks){
-                printf("\nstudent detail of highest marks \n");
-                printf("Name : %s\nRoll number : %d\nMarks : %f \n",ptr[i].name,ptr[i].roll,ptr[i].marks);
-            }
-         }
-         break;
+// case 5 : printf("loading data \n");fp=fopen("student.txt","r");
+//         //  if(fp==EOF){
+//         //     printf("file is empty");
+//         //  }
+//          if(NULL==fp){
+//             printf("operation failed");
+//             return 1;
+//          }
+//          while(fscanf(fp,"%d%s%f",&rd,rv,&mf)==3){
+//             printf(" roll number :%d name: %s marks :%f\n",rd,rv,mf);
+//          }
+//          fclose(fp);
+//         break;       
+// case 6 : high=ptr[0].marks;
+//          for(i=0;i<n;i++){
+//             if(high<ptr[i].marks){
+//                 high=ptr[i].marks;
+//             }
+//          }
+//          for(i=0;i<n;i++){
+//             if(high==ptr[i].marks){
+//                 printf("\nstudent detail of highest marks \n");
+//                 printf("Name : %s\nRoll number : %d\nMarks : %f \n",ptr[i].name,ptr[i].roll,ptr[i].marks);
+//             }
+//          }
+//          break;
 
-case 7 : free(ptr);
-         ptr=NULL;
-         return 0;
+// case 7 : free(ptr);
+//          ptr=NULL;
+//          return 0;
 
-}
-}
-}
+// }
+// }
+// }
 
 
 // }
@@ -665,21 +665,129 @@ case 7 : free(ptr);
 //     g++;
 
 // }
+
+
+
+
+
 // printf("%d",g);
 // // fscanf(fp,"%s",k);
 // // getchar();
 // // printf("%s",k);
 // fclose(fp);
 // fp=NULL;
+// int x=500;
+// int y=0;
+// int *py;
+// py=&y;
+// int *ptr=&x;
+// FILE *fp;
+// fp=fopen("te","wb");
+// fwrite(ptr,sizeof(int),1,fp);
+// fclose(fp);
+// fp = fopen("te","rb");
+// fread(py,sizeof(int),1,fp);
+// printf("%d",*py);
+// fclose(fp);
+// }
+// FILE *fp;
+// struct stud
+// {
+//     int roll;
+//     char name[50];
+// }s;
+// struct stude
+// {
+//     int roll;
+//     char name[50];
+// }l;
+// int x;
+// int *px=&x;
+// struct stud *pt=&s;
+// struct stude *pr=&l;
+// fp=fopen("stuudent.txt","wb");
+// printf("enter roll \nname ");
+// fgets(s.name,50,stdin);
+// scanf("%d",&s.roll);
+// fwrite(pt,sizeof(struct stud),1,fp);
+// fclose(fp);
+// fp=fopen("stuudent.txt","rb");
+// fread(pr,sizeof(struct stude),1,fp);
+// printf("%d,%s",l.roll,l.name);
+// int arr[5]={10,20,30,40,50};
+// int *pr=arr;
+// FILE *gp;
+// gp=fopen("esss.txt","wb");
+// if(gp==NULL){
+//     printf("file opening unsuccessful");
+//     return 1;
+// }
+// fwrite(pr,sizeof(arr),1,gp);
+// fclose(gp);
+// gp=fopen("esss.txt","rb");
+// fseek(gp,3*sizeof(int),SEEK_SET);
+// int x;
 
+// fread(&x,sizeof(int),1,gp);
 
+// printf("%d",x);
+// fclose(gp);
+// int i,n;
+// struct stud {
+//     char name[50];
+//     int roll;
+// }s[5];
 
+// struct stud *pk=s;
+// struct stud d ;
+// struct stud *pd=&d;
+// printf("enter student detial");
+// for( i=0;i<5;i++){
+// printf("enter name ");
+// fgets(s[i].name,50,stdin);
+// printf("enter roll ");
+// scanf("%d",&s[i].roll);
+// getchar();
+// }
+// FILE *fp;
+// fp=fopen("student.txt","wb");
+// if(fp==NULL){
+//     printf("unable to open file");
+//     return 1;
+// }
+// fwrite(pk,sizeof(struct stud),5,fp);
+// fclose(fp);
+// fp=fopen("student.txt","rb");
+// if(fp==NULL){
+//     printf("unable to open file");
+//     return 1;
+// }
 
-
-
-
-
-
-
-
-
+// printf("which student number  ");
+// scanf("%d",&n);
+// if(n>5){
+//     printf("wrong input");
+//     return 2;
+// }
+// fseek(fp,(n-1)*sizeof(struct stud),SEEK_SET);
+// fread(pd,sizeof(d),1,fp);
+// printf("%d %s",d.roll,d.name);
+// fclose(fp);
+// FILE *fp=NULL;
+// fp=fopen("sam.bin","wb");
+// int g[2],f[2],*j=g,*k=f;
+// scanf("%d",&g);
+// scanf("%d",&g[1]);
+// fwrite(j,sizeof(int),2,fp);
+// fclose(fp);
+// fp=fopen("sam.bin","rb");
+// printf("%ld ",ftell(fp));
+// while(fread(k,sizeof(int),1,fp)==1){ // rewind(fp);
+//     printf("%ld ",ftell(fp));
+// }
+// fclose(fp);
+struct Node{
+    int data;
+    struct Node *next ;
+};
+}
