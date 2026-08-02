@@ -150,6 +150,9 @@
 //     }
 
 // }
+//----------------------------------------//
+//          GCD OF TWO NUMBERS            //
+//----------------------------------------//
 int main(){
     int n,r,a,b,temp_a,temp_b;
     printf("enter numbers\n");
